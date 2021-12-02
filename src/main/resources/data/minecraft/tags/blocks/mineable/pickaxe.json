@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "alternacraft:titanium_ore",
+    "alternacraft:painite_ore",
+    "alternacraft:fossil_ore"
+  ]
+}
