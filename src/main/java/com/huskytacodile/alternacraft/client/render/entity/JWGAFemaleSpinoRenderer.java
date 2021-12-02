@@ -7,7 +7,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
+
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -18,8 +18,8 @@ import javax.annotation.Nullable;
 
 public class JWGAFemaleSpinoRenderer extends GeoEntityRenderer<JWGAFemaleSpinoEntity>
 {
-    public JWGAFemaleSpinoRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(EntityRendererProvider, new JWGAFemaleSpinoModel());
+    public JWGAFemaleSpinoRenderer(EntityRendererProvider.Context entityRendererProvider) {
+        super(entityRendererProvider, new JWGAFemaleSpinoModel());
         this.shadowRadius = 4.0F;
     }
 

@@ -1,7 +1,6 @@
 package com.huskytacodile.alternacraft.entities;
 
 import com.huskytacodile.alternacraft.util.ModSoundEvents;
-import com.mojang.math.Vector3d;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
