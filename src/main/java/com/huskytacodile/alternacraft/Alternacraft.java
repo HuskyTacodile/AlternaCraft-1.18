@@ -8,6 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Alternacraft.MOD_ID)
@@ -19,9 +20,12 @@ public class Alternacraft {
     public Alternacraft() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+
         eventBus.addListener(this::setup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        GeckoLib.initialize();
+
     }
 
     private void setup(final FMLCommonSetupEvent event)
