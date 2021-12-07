@@ -13,11 +13,39 @@
       "alternacraft:spino_roar2"
     ]
   },
+  "satellite_spino": {
+    "category": "entities",
+    "subtitle": "alternacraft.satellite_spino",
+    "sounds": [
+      "alternacraft:satellite_spino"
+    ]
+  },
   "spino_roar3": {
     "category": "entities",
     "subtitle": "alternacraft.spino_roar3",
     "sounds": [
       "alternacraft:spino_roar3"
+    ]
+  },
+  "indominus_rex_roar1": {
+    "category": "entities",
+    "subtitle": "alternacraft.indominus_rex_roar1",
+    "sounds": [
+      "alternacraft:indominus_rex_roar1"
+    ]
+  },
+  "indominus_rex_roar2": {
+    "category": "entities",
+    "subtitle": "alternacraft.indominus_rex_roar2",
+    "sounds": [
+      "alternacraft:indominus_rex_roar2"
+    ]
+  },
+  "indominus_rex_growl": {
+    "category": "entities",
+    "subtitle": "alternacraft.indominus_rex_growl",
+    "sounds": [
+      "alternacraft:indominus_rex_growl"
     ]
   }
 }

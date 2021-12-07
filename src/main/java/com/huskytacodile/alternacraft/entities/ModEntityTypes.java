@@ -21,6 +21,18 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(JWGAFemaleSpinoEntity::new,
                                     MobCategory.CREATURE).sized(4f, 4f)
                             .build(new ResourceLocation(Alternacraft.MOD_ID, "jwgafemalespino").toString()));
+
+    public static final RegistryObject<EntityType<IndominusMaleEntity>> INDOMINUS_MALE =
+            ENTITY_TYPES.register("indominus_male",
+                    () -> EntityType.Builder.of(IndominusMaleEntity::new,
+                                    MobCategory.CREATURE).sized(4f, 4f)
+                            .build(new ResourceLocation(Alternacraft.MOD_ID, "indominus_male").toString()));
+
+    public static final RegistryObject<EntityType<IndominusFemaleEntity>> INDOMINUS_FEMALE =
+            ENTITY_TYPES.register("indominus_female",
+                    () -> EntityType.Builder.of(IndominusFemaleEntity::new,
+                                    MobCategory.CREATURE).sized(4f, 4f)
+                            .build(new ResourceLocation(Alternacraft.MOD_ID, "indominus_female").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

@@ -20,6 +20,14 @@ public class ModItems {
             () -> new ModSpawnEggItem(ModEntityTypes.JWGAFEMALESPINO, 0x464F56, 0x1D6336,
                     new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
 
+    public static final RegistryObject<ModSpawnEggItem> INDOMINUS_FEMALE_SPAWN_EGG = ITEMS.register("indominus_female_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityTypes.INDOMINUS_FEMALE, 0x464F56, 0x1D6336,
+                    new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
+
+    public static final RegistryObject<ModSpawnEggItem> INDOMINUS_MALE_SPAWN_EGG = ITEMS.register("indominus_male_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityTypes.INDOMINUS_MALE, 0x464F56, 0x1D6336,
+                    new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
+
     public static final RegistryObject<Item> FOSSIL = ITEMS.register("fossil",
             ()-> new Item(new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
 

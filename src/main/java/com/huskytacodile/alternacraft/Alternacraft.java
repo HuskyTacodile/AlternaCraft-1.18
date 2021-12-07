@@ -1,10 +1,13 @@
 package com.huskytacodile.alternacraft;
 
 import com.huskytacodile.alternacraft.block.ModBlocks;
+import com.huskytacodile.alternacraft.client.render.entity.IndominusFemaleRenderer;
+import com.huskytacodile.alternacraft.client.render.entity.IndominusMaleRenderer;
 import com.huskytacodile.alternacraft.client.render.entity.JWGAFemaleSpinoRenderer;
 import com.huskytacodile.alternacraft.entities.ModEntityTypes;
 import com.huskytacodile.alternacraft.item.ModItems;
 import com.huskytacodile.alternacraft.util.ModItemProperties;
+import com.huskytacodile.alternacraft.util.ModSoundEvents;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -31,7 +34,8 @@ public class Alternacraft {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
-
+        ModEntityTypes.register(eventBus);
+        ModSoundEvents.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::registerRenderers);
@@ -45,6 +49,8 @@ public class Alternacraft {
     public void registerRenderers(final EntityRenderersEvent.RegisterRenderers event)
     {
         event.registerEntityRenderer(ModEntityTypes.JWGAFEMALESPINO.get(), manager -> new JWGAFemaleSpinoRenderer(manager));
+        event.registerEntityRenderer(ModEntityTypes.INDOMINUS_MALE.get(), manager -> new IndominusMaleRenderer(manager));
+        event.registerEntityRenderer(ModEntityTypes.INDOMINUS_FEMALE.get(), manager -> new IndominusFemaleRenderer(manager));
 
         ModItemProperties.makeBow(ModItems.PAINITE_BOW.get());
     }

@@ -1,6 +1,8 @@
 package com.huskytacodile.alternacraft.events;
 
 import com.huskytacodile.alternacraft.Alternacraft;
+import com.huskytacodile.alternacraft.entities.IndominusFemaleEntity;
+import com.huskytacodile.alternacraft.entities.IndominusMaleEntity;
 import com.huskytacodile.alternacraft.entities.JWGAFemaleSpinoEntity;
 import com.huskytacodile.alternacraft.entities.ModEntityTypes;
 
@@ -16,6 +18,8 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void addEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntityTypes.JWGAFEMALESPINO.get(), JWGAFemaleSpinoEntity.attributes().build());
+        event.put(ModEntityTypes.INDOMINUS_FEMALE.get(), IndominusFemaleEntity.attributes().build());
+        event.put(ModEntityTypes.INDOMINUS_MALE.get(), IndominusMaleEntity.attributes().build());
     }
 
     @SubscribeEvent
