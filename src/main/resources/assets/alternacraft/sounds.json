@@ -47,5 +47,26 @@
     "sounds": [
       "alternacraft:indominus_rex_growl"
     ]
+  },
+  "acro_growl": {
+    "category": "entities",
+    "subtitle": "alternacraft.acro_growl",
+    "sounds": [
+      "alternacraft:acro_growl"
+    ]
+  },
+  "acro_roar1": {
+    "category": "entities",
+    "subtitle": "alternacraft.acro_roar1",
+    "sounds": [
+      "alternacraft:acro_roar1"
+    ]
+  },
+  "acro_roar2": {
+    "category": "entities",
+    "subtitle": "alternacraft.acro_roar2",
+    "sounds": [
+      "alternacraft:acro_roar2"
+    ]
   }
 }

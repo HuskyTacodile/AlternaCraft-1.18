@@ -1,9 +1,7 @@
 package com.huskytacodile.alternacraft;
 
 import com.huskytacodile.alternacraft.block.ModBlocks;
-import com.huskytacodile.alternacraft.client.render.entity.IndominusFemaleRenderer;
-import com.huskytacodile.alternacraft.client.render.entity.IndominusMaleRenderer;
-import com.huskytacodile.alternacraft.client.render.entity.JWGAFemaleSpinoRenderer;
+import com.huskytacodile.alternacraft.client.render.entity.*;
 import com.huskytacodile.alternacraft.entities.ModEntityTypes;
 import com.huskytacodile.alternacraft.item.ModItems;
 import com.huskytacodile.alternacraft.util.ModItemProperties;
@@ -16,7 +14,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -49,8 +46,12 @@ public class Alternacraft {
     public void registerRenderers(final EntityRenderersEvent.RegisterRenderers event)
     {
         event.registerEntityRenderer(ModEntityTypes.JWGAFEMALESPINO.get(), manager -> new JWGAFemaleSpinoRenderer(manager));
+        event.registerEntityRenderer(ModEntityTypes.JWGAMALESPINO.get(), manager -> new JWGAMaleSpinoRenderer(manager));
         event.registerEntityRenderer(ModEntityTypes.INDOMINUS_MALE.get(), manager -> new IndominusMaleRenderer(manager));
         event.registerEntityRenderer(ModEntityTypes.INDOMINUS_FEMALE.get(), manager -> new IndominusFemaleRenderer(manager));
+        event.registerEntityRenderer(ModEntityTypes.INDOMINUS_ELEMENTAL.get(), manager -> new IndominusElementalRenderer(manager));
+        event.registerEntityRenderer(ModEntityTypes.ACRO_FEMALE.get(), manager -> new AcroFemaleRenderer(manager));
+        event.registerEntityRenderer(ModEntityTypes.ACRO_MALE.get(), manager -> new AcroMaleRenderer(manager));
 
         ModItemProperties.makeBow(ModItems.PAINITE_BOW.get());
     }

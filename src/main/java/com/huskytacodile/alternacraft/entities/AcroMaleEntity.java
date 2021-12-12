@@ -1,20 +1,16 @@
 package com.huskytacodile.alternacraft.entities;
 
 import com.huskytacodile.alternacraft.util.ModSoundEvents;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -43,12 +39,12 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 
-public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable, ItemSteerable {
+public class AcroMaleEntity extends TamableAnimal implements IAnimatable, ItemSteerable {
     private AnimationFactory factory = new AnimationFactory(this);
     private static final EntityDataAccessor<Boolean> DATA_SADDLE_ID = SynchedEntityData.defineId(Pig.class, EntityDataSerializers.BOOLEAN);
     private final ItemBasedSteering steering = new ItemBasedSteering(this.entityData, DATA_BOOST_TIME,DATA_SADDLE_ID);
     private static final EntityDataAccessor<Integer> DATA_BOOST_TIME = SynchedEntityData.defineId(Pig.class, EntityDataSerializers.INT);
-    protected JWGAFemaleSpinoEntity(EntityType<? extends TamableAnimal> p_i48575_1_, Level p_i48575_2_) {
+    protected AcroMaleEntity(EntityType<? extends TamableAnimal> p_i48575_1_, Level p_i48575_2_) {
         super(p_i48575_1_, p_i48575_2_);
         this.setTame(false);
     }
@@ -59,22 +55,22 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
 
 
     @Override
-    protected net.minecraft.sounds.SoundEvent getAmbientSound()
+    protected SoundEvent getAmbientSound()
     {
-        return ModSoundEvents.SATELLITE_SPINO.get();
+        return ModSoundEvents.ACRO_GROWL.get();
     }
 
 
     @Override
-    protected net.minecraft.sounds.SoundEvent getDeathSound()
+    protected SoundEvent getDeathSound()
     {
-        return ModSoundEvents.SPINO_ROAR3.get();
+        return ModSoundEvents.ACRO_ROAR1.get();
     }
 
     @Override
-    protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource damageSourceIn)
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return ModSoundEvents.SPINO_ROAR1.get();
+        return ModSoundEvents.ACRO_ROAR2.get();
     }
     public boolean doHurtTarget(Entity p_70652_1_) {
         boolean flag = super.doHurtTarget(p_70652_1_);
@@ -88,30 +84,24 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (!(animationSpeed > -0.10F && animationSpeed < 0.05F) && !this.isAggressive()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.spino.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.acrocanthosaurus.walk", true));
             return PlayState.CONTINUE;
         }
         if (this.isAggressive() && !(this.dead || this.getHealth() < 0.01 || this.isDeadOrDying())) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.spino.attack", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.acrocanthosaurus.attack", true));
             return PlayState.CONTINUE;
         }
         if (this.isOrderedToSit() || this.getHealth() < 0.01 || this.isDeadOrDying()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.spino.sit", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.acrocanthosaurus.sit", true));
             return PlayState.CONTINUE;
         }
-        if (this.isSwimming() && !(animationSpeed > -0.10F && animationSpeed < 0.05F) && !this.isAggressive()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.spino.swim", true));
-            return PlayState.CONTINUE;
-        }
-
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.spino.idle", true));
-
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.acrocanthosaurus.idle", true));
         return PlayState.CONTINUE;
     }
 
     @Override
     public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<JWGAFemaleSpinoEntity>
+        data.addAnimationController(new AnimationController<AcroMaleEntity>
                 (this, "controller", 0, this::predicate));
     }
 
@@ -122,16 +112,16 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
 
     public static AttributeSupplier.Builder attributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 96.00D)
+                .add(Attributes.MAX_HEALTH, 82.00D)
                 .add(Attributes.MOVEMENT_SPEED, 0.2D)
-                .add(Attributes.FOLLOW_RANGE, 16.0D)
-                .add(Attributes.ATTACK_DAMAGE, 10.0D);
+                .add(Attributes.FOLLOW_RANGE, 14.0D)
+                .add(Attributes.ATTACK_DAMAGE, 8.0D);
     }
     public InteractionResult mobInteract(Player p_230254_1_, InteractionHand p_230254_2_) {
         ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
         Item item = itemstack.getItem();
         if (this.level.isClientSide) {
-            boolean flag = this.isOwnedBy(p_230254_1_) || this.isTame() || item == Items.IRON_SWORD && !this.isTame();
+            boolean flag = this.isOwnedBy(p_230254_1_) || this.isTame() || item == Items.STONE_SWORD && !this.isTame();
             return flag ? InteractionResult.CONSUME : InteractionResult.PASS;
 
         } else {
@@ -140,12 +130,11 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
                     if (!p_230254_1_.getAbilities().instabuild) {
                         itemstack.shrink(1);
                     }
-
                     this.heal((float)item.getFoodProperties().getNutrition());
                     return InteractionResult.SUCCESS;
                 }
                 p_230254_1_.startRiding(this);
-                } else if (item == Items.IRON_SWORD && !this.isOnFire()) {
+                } else if (item == Items.STONE_SWORD && !this.isOnFire()) {
                 if (!p_230254_1_.getAbilities().instabuild) {
                     itemstack.shrink(1);
                 }
@@ -170,7 +159,7 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
 
     }
     public boolean canBreatheUnderwater() {
-        return true;
+        return false;
     }
     public Vec3 getDismountLocationForPassenger(LivingEntity p_230268_1_) {
         Direction direction = this.getMotionDirection();
@@ -218,7 +207,7 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
             return false;
         } else {
             Player playerentity = (Player)entity;
-            return playerentity.getMainHandItem().getItem() == Items.NETHERITE_SWORD || playerentity.getOffhandItem().getItem() == Items.NETHERITE_SWORD;
+            return playerentity.getMainHandItem().getItem() == Items.DIAMOND_SWORD || playerentity.getOffhandItem().getItem() == Items.NETHERITE_SWORD;
         }
     }
     public void travel(Vec3 p_213352_1_) {
@@ -253,7 +242,7 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
         this.goalSelector.addGoal(1, new RandomStrollGoal(this, 1));
         this.targetSelector.addGoal(3, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.NETHERITE_SWORD), false));
+        this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.DIAMOND_SWORD), false));
         this.goalSelector.addGoal(0,new RandomSwimmingGoal(this,0,1));
         this.goalSelector.addGoal(2, new FloatGoal(this));
     }

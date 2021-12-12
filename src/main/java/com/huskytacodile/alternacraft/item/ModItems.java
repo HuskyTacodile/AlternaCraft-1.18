@@ -20,12 +20,28 @@ public class ModItems {
             () -> new ModSpawnEggItem(ModEntityTypes.JWGAFEMALESPINO, 0x464F56, 0x1D6336,
                     new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
 
+    public static final RegistryObject<ModSpawnEggItem> JWGAMALESPINO_SPAWN_EGG = ITEMS.register("jwgamalespino_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityTypes.JWGAMALESPINO, 0x464F56, 0x1D6336,
+                    new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
+
     public static final RegistryObject<ModSpawnEggItem> INDOMINUS_FEMALE_SPAWN_EGG = ITEMS.register("indominus_female_spawn_egg",
             () -> new ModSpawnEggItem(ModEntityTypes.INDOMINUS_FEMALE, 0x464F56, 0x1D6336,
                     new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
 
     public static final RegistryObject<ModSpawnEggItem> INDOMINUS_MALE_SPAWN_EGG = ITEMS.register("indominus_male_spawn_egg",
             () -> new ModSpawnEggItem(ModEntityTypes.INDOMINUS_MALE, 0x464F56, 0x1D6336,
+                    new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
+
+    public static final RegistryObject<ModSpawnEggItem> INDOMINUS_ELEMENTAL_SPAWN_EGG = ITEMS.register("indominus_elemental_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityTypes.INDOMINUS_ELEMENTAL, 0x464F56, 0x1D6336,
+                    new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
+
+    public static final RegistryObject<ModSpawnEggItem> ACRO_MALE_SPAWN_EGG = ITEMS.register("acro_male_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityTypes.ACRO_MALE, 0x464F56, 0x1D6336,
+                    new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
+
+    public static final RegistryObject<ModSpawnEggItem> ACRO_FEMALE_SPAWN_EGG = ITEMS.register("acro_female_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityTypes.ACRO_FEMALE, 0x464F56, 0x1D6336,
                     new Item.Properties().tab(ModCreativeModeTab.ALTERNACRAFT_GROUP)));
 
     public static final RegistryObject<Item> FOSSIL = ITEMS.register("fossil",

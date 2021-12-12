@@ -1,20 +1,16 @@
 package com.huskytacodile.alternacraft.entities;
 
 import com.huskytacodile.alternacraft.util.ModSoundEvents;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -43,12 +39,12 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 
-public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable, ItemSteerable {
+public class JWGAMaleSpinoEntity extends TamableAnimal implements IAnimatable, ItemSteerable {
     private AnimationFactory factory = new AnimationFactory(this);
     private static final EntityDataAccessor<Boolean> DATA_SADDLE_ID = SynchedEntityData.defineId(Pig.class, EntityDataSerializers.BOOLEAN);
     private final ItemBasedSteering steering = new ItemBasedSteering(this.entityData, DATA_BOOST_TIME,DATA_SADDLE_ID);
     private static final EntityDataAccessor<Integer> DATA_BOOST_TIME = SynchedEntityData.defineId(Pig.class, EntityDataSerializers.INT);
-    protected JWGAFemaleSpinoEntity(EntityType<? extends TamableAnimal> p_i48575_1_, Level p_i48575_2_) {
+    protected JWGAMaleSpinoEntity(EntityType<? extends TamableAnimal> p_i48575_1_, Level p_i48575_2_) {
         super(p_i48575_1_, p_i48575_2_);
         this.setTame(false);
     }
@@ -59,20 +55,20 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
 
 
     @Override
-    protected net.minecraft.sounds.SoundEvent getAmbientSound()
+    protected SoundEvent getAmbientSound()
     {
         return ModSoundEvents.SATELLITE_SPINO.get();
     }
 
 
     @Override
-    protected net.minecraft.sounds.SoundEvent getDeathSound()
+    protected SoundEvent getDeathSound()
     {
         return ModSoundEvents.SPINO_ROAR3.get();
     }
 
     @Override
-    protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource damageSourceIn)
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
         return ModSoundEvents.SPINO_ROAR1.get();
     }
@@ -111,7 +107,7 @@ public class JWGAFemaleSpinoEntity extends TamableAnimal implements IAnimatable,
 
     @Override
     public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<JWGAFemaleSpinoEntity>
+        data.addAnimationController(new AnimationController<JWGAMaleSpinoEntity>
                 (this, "controller", 0, this::predicate));
     }
 

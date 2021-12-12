@@ -114,7 +114,7 @@ public class IndominusMaleEntity extends TamableAnimal implements IAnimatable, I
 
     public static AttributeSupplier.Builder attributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 80.00D)
+                .add(Attributes.MAX_HEALTH, 115.00D)
                 .add(Attributes.MOVEMENT_SPEED, 0.2D)
                 .add(Attributes.FOLLOW_RANGE, 18.0D)
                 .add(Attributes.ATTACK_DAMAGE, 15.0D);

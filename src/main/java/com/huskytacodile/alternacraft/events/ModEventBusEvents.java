@@ -1,10 +1,7 @@
 package com.huskytacodile.alternacraft.events;
 
 import com.huskytacodile.alternacraft.Alternacraft;
-import com.huskytacodile.alternacraft.entities.IndominusFemaleEntity;
-import com.huskytacodile.alternacraft.entities.IndominusMaleEntity;
-import com.huskytacodile.alternacraft.entities.JWGAFemaleSpinoEntity;
-import com.huskytacodile.alternacraft.entities.ModEntityTypes;
+import com.huskytacodile.alternacraft.entities.*;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.SpawnEggItem;
@@ -20,6 +17,10 @@ public class ModEventBusEvents {
         event.put(ModEntityTypes.JWGAFEMALESPINO.get(), JWGAFemaleSpinoEntity.attributes().build());
         event.put(ModEntityTypes.INDOMINUS_FEMALE.get(), IndominusFemaleEntity.attributes().build());
         event.put(ModEntityTypes.INDOMINUS_MALE.get(), IndominusMaleEntity.attributes().build());
+        event.put(ModEntityTypes.INDOMINUS_ELEMENTAL.get(), IndominusElementalEntity.attributes().build());
+        event.put(ModEntityTypes.ACRO_MALE.get(), AcroMaleEntity.attributes().build());
+        event.put(ModEntityTypes.ACRO_FEMALE.get(), AcroFemaleEntity.attributes().build());
+        event.put(ModEntityTypes.JWGAMALESPINO.get(), JWGAMaleSpinoEntity.attributes().build());
     }
 
     @SubscribeEvent

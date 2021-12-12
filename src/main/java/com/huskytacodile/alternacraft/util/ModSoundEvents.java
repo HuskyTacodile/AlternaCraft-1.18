@@ -28,6 +28,12 @@ public class ModSoundEvents {
             registerSoundEvent("indominus_rex_roar2");
     public static final RegistryObject<SoundEvent> INDOMINUS_REX_GROWL =
             registerSoundEvent("indominus_rex_growl");
+    public static final RegistryObject<SoundEvent> ACRO_GROWL =
+            registerSoundEvent("acro_growl");
+    public static final RegistryObject<SoundEvent> ACRO_ROAR1 =
+            registerSoundEvent("acro_roar1");
+    public static final RegistryObject<SoundEvent> ACRO_ROAR2 =
+            registerSoundEvent("acro_roar2");
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(Alternacraft.MOD_ID, name)));
